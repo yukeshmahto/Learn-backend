@@ -1,0 +1,17 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend learning",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemodule index.js"
+  },
+  "keywords": [
+    "javascript",
+    "node",
+    "express",
+    "mongoDB"
+  ],
+  "author": "Yukesh",
+  "license": "ISC"
+}
