@@ -486,4 +486,6 @@ export {
   forgotPassword,
   updateUserAvatar,
   updateUserCoverImage,
+  getUserChannelProfile,
+  getWatchHistory,
 };
