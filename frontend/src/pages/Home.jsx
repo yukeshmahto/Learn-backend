@@ -31,7 +31,7 @@ const Home = () => {
     <main className="page-shell">
       <section className="hero-panel">
         <div>
-          <h1>Welcome to VideoTube</h1>
+          <h1>Welcome to VideoTube  </h1>
           <p>
             Search, browse, and watch published videos. Login to upload, edit,
             or manage your content.
