@@ -1,0 +1,48 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    networks:
+      - fullstack-network
+
+  server:
+    build: ./backend
+    container_name: express-server
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - mongo
+    networks:
+      - fullstack-network
+
+  client:
+    build: ./frontend
+    container_name: react-client
+    depends_on:
+      - server
+    networks:
+      - fullstack-network
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - server
+      - client
+    networks:
+      - fullstack-network
+
+networks:
+  fullstack-network:
+    driver: bridge
